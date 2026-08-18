@@ -13,7 +13,11 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3001', 'http://localhost:3000'],
+  origin: [
+    'http://localhost:3001', 
+    'http://localhost:3000',
+    'https://roma-film-production-opal.vercel.app'
+  ],
   credentials: true
 }));
 app.use(express.json());
