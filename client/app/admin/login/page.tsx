@@ -34,8 +34,9 @@ export default function LoginPage() {
       } else {
         setError(data.error || "Invalid credentials. Please try again.");
       }
-    } catch (err) {
-      setError("Network error. Please check your connection.");
+    } catch (err: any) {
+      console.error(err);
+      setError(`Network/Config Error: ${err.message}. (Did Vercel finish redeploying with the new API URL?)`);
     } finally {
       setIsLoading(false);
     }
