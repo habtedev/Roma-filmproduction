@@ -184,8 +184,9 @@ export default function AdminPage() {
       try {
         const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
-        const res = await authFetch(`${API_URL}/api/auth/me`, {
-          credentials: "include"
+        const res = await authFetch(`${API_URL}/api/auth/me?_t=${Date.now()}`, {
+          credentials: "include",
+          cache: "no-store"
         });
         const data = await res.json();
         if (data.success && data.user) {
