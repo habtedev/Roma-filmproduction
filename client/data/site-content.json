@@ -1,0 +1,441 @@
+{
+  "about": {
+    "eyebrow": "Our Heritage & Philosophy",
+    "heading": "Where Fine Art Meets Motion Cinema",
+    "subheading": "Roma Film Production is a luxury wedding cinematography and photography atelier.",
+    "leadParagraph": "Founded with an unrelenting pursuit of visual perfection, Roma Film Production curates authentic, emotionally resonant imagery for discerning couples worldwide. We merge medium-format editorial portraiture with high-frame-rate cinema.",
+    "secondaryParagraph": "From intimate elopements on the Amalfi Coast to grand multi-day estate celebrations in Texas and Lake Como, our team brings a calming, unobtrusive presence while documenting every fleeting glance and heartfelt tear.",
+    "quote": "True luxury is not perfection; it is capturing the raw, transcendent intimacy of two souls choosing forever.",
+    "quoteAuthor": "Founder & Lead Director, Roma Film",
+    "artistName": "Marcus Roma",
+    "artistRole": "Founder & Master Cinematographer",
+    "artistImage": "/image/wedding_sunset.webp",
+    "badgeText": "Vogue Weddings & Harper's Bazaar Featured",
+    "experienceYears": "12+",
+    "weddingsCount": "500+",
+    "countriesCount": "25+",
+    "satisfactionRate": "100%",
+    "processSteps": [
+      {
+        "num": "01",
+        "title": "Discovery & Connection",
+        "desc": "We begin with a personal consultation — over espresso or private video call — to understand your aesthetic vision, timeline, and unique story."
+      },
+      {
+        "num": "02",
+        "title": "Storyboarding & Curation",
+        "desc": "We craft tailored shot-lists, lighting plans, and cinema schedules so your day flows effortlessly without forced poses."
+      },
+      {
+        "num": "03",
+        "title": "The Wedding Day",
+        "desc": "Our dual photo & video team unobtrusively captures raw emotions, quiet candid moments, and grand celebrations in real time."
+      },
+      {
+        "num": "04",
+        "title": "Master Grade & Delivery",
+        "desc": "Every image is hand-retouched and every film color-graded with editorial skin tones before delivery to your private heirloom gallery."
+      }
+    ]
+  },
+  "photos": [
+    {
+      "id": 1,
+      "title": "Golden Hour Embrace at Tuscan Villa",
+      "category": "Weddings",
+      "location": "Tuscany, Italy",
+      "src": "/image/wedding_sunset.webp",
+      "specs": "Leica SL2 · 35mm f/1.4 · Natural Golden Light",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "The Modern Bride — High Fashion Editorial",
+      "category": "Bride & Groom",
+      "location": "Paris, France",
+      "src": "/image/bride_portrait.webp",
+      "specs": "Hasselblad H6D · 80mm f/2.2 · Soft Morning Window",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Yacht Sunset Lovers",
+      "category": "Couples",
+      "location": "Amalfi Coast",
+      "src": "/image/couple_romantic.webp",
+      "specs": "Sony A1 · 50mm f/1.2 · Dusk Glow",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Heirloom Diamond & Calligraphy Vows",
+      "category": "Details & Styling",
+      "location": "Dallas Studio",
+      "src": "/image/wedding_details.webp",
+      "specs": "Canon R5 · 90mm Macro f/2.8 · Soft Silk Focus",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Artist in Motion",
+      "category": "Engagement",
+      "location": "Bordeaux, France",
+      "src": "/image/about_portrait.webp",
+      "specs": "Canon R3 · 85mm f/1.4 · Warm Bokeh",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Reception Under the Stars",
+      "category": "Weddings",
+      "location": "Estate Gardens",
+      "src": "/image/video_thumb_1.webp",
+      "specs": "Sony A7SIII · 24mm f/1.4 · Anamorphic Lens",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Lakeside Vows",
+      "category": "Weddings",
+      "location": "Lake Como, Italy",
+      "src": "/image/wedding_sunset.webp",
+      "specs": "Leica SL2 · 50mm f/1.4 · Afternoon Sun",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "Editorial Groom Portrait",
+      "category": "Bride & Groom",
+      "location": "London, UK",
+      "src": "/image/bride_portrait.webp",
+      "specs": "Hasselblad H6D · 100mm f/2.2 · Studio Light",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "Desert Elopement",
+      "category": "Couples",
+      "location": "Joshua Tree, CA",
+      "src": "/image/couple_romantic.webp",
+      "specs": "Sony A1 · 35mm f/1.2 · Golden Hour",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Champagne Tower",
+      "category": "Details & Styling",
+      "location": "New York, NY",
+      "src": "/image/wedding_details.webp",
+      "specs": "Canon R5 · 50mm f/1.2 · Flash Photography",
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "First Look Tears",
+      "category": "Weddings",
+      "location": "Charleston, SC",
+      "src": "/image/about_portrait.webp",
+      "specs": "Canon R3 · 85mm f/1.4 · Overcast Soft Light",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "Sparkler Exit",
+      "category": "Weddings",
+      "location": "Austin, TX",
+      "src": "/image/video_thumb_1.webp",
+      "specs": "Sony A7SIII · 24mm f/1.4 · Low Light High ISO",
+      "featured": false
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Binyam & Elshaday",
+      "type": "Cinematic Highlight Film",
+      "location": "Dallas Estate, Texas",
+      "duration": "4:45",
+      "tag": "Highlight Film",
+      "poster": "/image/video_thumb_1.webp",
+      "videoUrl": "/videos/banner.mp4",
+      "quote": "Roma Film Production captured our wedding like an Oscar-worthy movie. We cry every time we watch.",
+      "couple": "Binyam & Elshaday"
+    },
+    {
+      "id": 2,
+      "title": "Nahom & Selam",
+      "type": "Destination Wedding Film",
+      "location": "Lake Como, Italy",
+      "duration": "7:20",
+      "tag": "Feature Film",
+      "poster": "/image/video_thumb_2.webp",
+      "videoUrl": "/videos/banner.mp4",
+      "quote": "The drone aerial shots and speech audio editing were beyond anything we imagined. Truly masterclass.",
+      "couple": "Nahom & Selam"
+    },
+    {
+      "id": 3,
+      "title": "Michael & Jessica",
+      "type": "Sunset Romance Teaser",
+      "location": "Amalfi Coast, Italy",
+      "duration": "2:30",
+      "tag": "Short Teaser",
+      "poster": "/image/wedding_sunset.webp",
+      "videoUrl": "/videos/banner.mp4",
+      "quote": "They preserved the genuine intimacy without ever making us feel staged or awkward.",
+      "couple": "Michael & Jessica"
+    },
+    {
+      "id": 4,
+      "title": "David & Sophia",
+      "type": "Coastal Yacht Elopement",
+      "location": "Santorini, Greece",
+      "duration": "5:10",
+      "tag": "Elopement Cinema",
+      "poster": "/image/couple_romantic.webp",
+      "videoUrl": "/videos/banner.mp4",
+      "quote": "Every guest who saw our film trailer was completely blown away by the colors and music timing.",
+      "couple": "David & Sophia"
+    }
+  ],
+  "packages": [
+    {
+      "title": "Editorial Photography",
+      "subtitle": "Fine Art Photo Storytelling",
+      "price": "$3,200",
+      "features": [
+        "8 Hours Continuous Coverage",
+        "Lead Photographer + Assistant",
+        "High-Resolution Digital Gallery",
+        "Hand-Retouched Print Rights",
+        "Online Sharing & Download Portal",
+        "Complimentary Engagement Session"
+      ],
+      "recommended": false,
+      "cta": "Select Photography",
+      "popular": false
+    },
+    {
+      "title": "Cinematic Videography",
+      "subtitle": "Motion Cinema & Audio Mastering",
+      "price": "$3,800",
+      "features": [
+        "8 Hours Continuous Coverage",
+        "2 Senior Cinematographers",
+        "4K Highlight Film (4–6 Mins)",
+        "Full Ceremony & Speeches Edit",
+        "Licensed Soundtrack & Pro Audio",
+        "Drone Aerial Footage Included"
+      ],
+      "recommended": false,
+      "cta": "Select Videography",
+      "popular": false
+    },
+    {
+      "title": "Signature Cinema + Photo",
+      "subtitle": "The Ultimate All-Inclusive Bundle",
+      "price": "$6,400",
+      "features": [
+        "Full Day Coverage (Up to 10 Hours)",
+        "Complete 4-Person Photo & Video Team",
+        "Hi-Res Gallery + 4K Highlight Film",
+        "12×12 Custom Italian Leather Album",
+        "Complimentary Engagement Session",
+        "Drone Aerial Coverage & Raw Footage"
+      ],
+      "recommended": true,
+      "cta": "Reserve Signature Suite",
+      "popular": true
+    },
+    {
+      "title": "Destination & Bespoke",
+      "subtitle": "Worldwide Elopements & Multi-Day",
+      "price": "Custom Quote",
+      "features": [
+        "Multi-Day Coverage (Rehearsal + Party)",
+        "Worldwide Travel & Logistics",
+        "Medium Format Film & 4K Cinema",
+        "A-la-Carte Luxury Prints & Frames",
+        "Custom Album Design Session"
+      ],
+      "recommended": false,
+      "cta": "Request Bespoke Quote",
+      "popular": false
+    }
+  ],
+  "services": [
+    {
+      "category": "Wedding Cinema & Photo",
+      "title": "Luxury Wedding Photography",
+      "desc": "Fine art, editorial documentary photography capturing timeless portraits, venue details, and genuine emotional moments.",
+      "features": [
+        "Full Day Coverage",
+        "Second Lead Shooter",
+        "Color-Graded Digital Gallery",
+        "Online Print Store"
+      ],
+      "tag": "Most Requested",
+      "image": "/image/bride_portrait.webp"
+    },
+    {
+      "category": "Wedding Cinema & Photo",
+      "title": "Cinematic Wedding Videography",
+      "desc": "4K cinema-grade films featuring licensed soundtracking, speeches audio mastering, and high-production color grading.",
+      "features": [
+        "Teaser & Highlight Film",
+        "Full Ceremony & Speeches",
+        "4K HDR Master Delivery",
+        "Professional Audio Rig"
+      ],
+      "tag": "High Production",
+      "image": "/image/video_thumb_1.webp"
+    },
+    {
+      "category": "Wedding Cinema & Photo",
+      "title": "Drone Aerial Cinematography",
+      "desc": "Breathtaking high-altitude perspectives of your venue, surrounding estate, outdoors ceremony, and sunset reception.",
+      "features": [
+        "Licensed Drone Pilot",
+        "4K Ultra-HD Footage",
+        "Estate & Landscape Shots",
+        "Seamless Film Integration"
+      ],
+      "tag": "Aerial View",
+      "image": "/image/video_thumb_2.webp"
+    },
+    {
+      "category": "Pre-Wedding & Proposals",
+      "title": "Pre-Wedding & Engagement Shoots",
+      "desc": "Romantic styled session at scenic locations before the big day, ideal for save-the-date cards and guestbook albums.",
+      "features": [
+        "Location Scouting",
+        "Outfit & Style Consult",
+        "Hi-Res Edit Batch",
+        "Fast 72-Hour Turnaround"
+      ],
+      "tag": "Romantic",
+      "image": "/image/couple_romantic.webp"
+    },
+    {
+      "category": "Milestones & Events",
+      "title": "Baptism & Ceremony Coverage",
+      "desc": "Sacred, respectful documentation of baptism and christening ceremonies, capturing family blessings and details.",
+      "features": [
+        "Ceremony Focus",
+        "Family Group Portraits",
+        "Digital Album",
+        "Private Sharing Portal"
+      ],
+      "tag": "Sacred Ceremonies",
+      "image": "/image/wedding_details.webp"
+    },
+    {
+      "category": "Milestones & Events",
+      "title": "Graduation Portraits & Reels",
+      "desc": "Celebrating academic milestones with magazine-style portrait sessions and dynamic social highlight reels.",
+      "features": [
+        "Individual Styling",
+        "Location Options",
+        "Social Video Clips",
+        "High-Resolution Prints"
+      ],
+      "tag": "Milestone",
+      "image": "/image/about_portrait.webp"
+    },
+    {
+      "category": "Milestones & Events",
+      "title": "Birthday & Gala Event Coverage",
+      "desc": "Vibrant, high-energy coverage of milestone birthdays, corporate galas, and private family anniversaries.",
+      "features": [
+        "Party Highlights",
+        "Guest Portraits",
+        "Event Teaser Film",
+        "Quick Gallery Delivery"
+      ],
+      "tag": "Events",
+      "image": "/image/wedding_sunset.webp"
+    },
+    {
+      "category": "Wedding Cinema & Photo",
+      "title": "Destination Wedding Coverage",
+      "desc": "Custom multi-day travel packages for weddings in Italy, Greece, Mexico, Europe, and tropical island destinations.",
+      "features": [
+        "Multi-Day Coverage",
+        "Welcome Dinner & Rehearsal",
+        "Travel Logistics Included",
+        "International Team"
+      ],
+      "tag": "Worldwide",
+      "image": "/image/couple_romantic.webp"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq-101",
+      "name": "Sophia Martinez",
+      "partnerName": "Liam Vance",
+      "email": "sophia.vance@example.com",
+      "phone": "+1 214 555 0192",
+      "service": "Signature Cinema + Photo",
+      "weddingDate": "2026-10-18",
+      "venue": "Villa Balbianello, Lake Como",
+      "guestCount": "120",
+      "budget": "$6,000 - $10,000",
+      "message": "We adore your editorial color grade! Looking for full photo and drone cinema coverage for our 3-day weekend.",
+      "howFound": "Instagram",
+      "status": "replied",
+      "createdAt": "2026-08-16T14:20:00Z"
+    },
+    {
+      "id": "inq-102",
+      "name": "Ethan Wright",
+      "partnerName": "Elena Rostova",
+      "email": "ethan.w@example.com",
+      "phone": "+1 512 555 4810",
+      "service": "Cinematic Videography",
+      "weddingDate": "2026-11-07",
+      "venue": "Commodore Perry Estate, Austin TX",
+      "guestCount": "180",
+      "budget": "$4,000 - $6,000",
+      "message": "Need 4K cinema highlight film plus full ceremony recording with speeches mastered.",
+      "howFound": "Google Search",
+      "status": "replied",
+      "createdAt": "2026-08-14T09:12:00Z"
+    },
+    {
+      "id": "inq-103",
+      "name": "Claire Dupont",
+      "partnerName": "Lucas Moreau",
+      "email": "claire.dupont@example.com",
+      "phone": "+33 6 12 34 56 78",
+      "service": "Editorial Photography",
+      "weddingDate": "2026-09-25",
+      "venue": "Château de Chantilly, France",
+      "guestCount": "80",
+      "budget": "$5,000 - $8,000",
+      "message": "We love your warm film aesthetic. We are holding an intimate sunset ceremony.",
+      "howFound": "Vogue Weddings",
+      "status": "booked",
+      "createdAt": "2026-08-10T16:45:00Z"
+    }
+  ],
+  "adminProfile": {
+    "name": "Habtamu Admin",
+    "email": "habtamudev@gmail.com",
+    "role": "Master Studio Director & Owner",
+    "phone": "+1 214 940 8492",
+    "avatar": "/image/about_portrait.webp",
+    "studioName": "Roma Film Production",
+    "twoFactorEnabled": true,
+    "lastLogin": "Today at 01:45 AM (Dallas, TX)"
+  },
+  "contact": {
+    "phone": "+1 214 940 8492",
+    "email": "s.gabriel220@gmail.com",
+    "address": "Dallas, Texas",
+    "hours": "Mon – Sat, 9am – 6pm CT",
+    "instagram": "https://instagram.com",
+    "facebook": "https://facebook.com",
+    "youtube": "https://youtube.com"
+  }
+}

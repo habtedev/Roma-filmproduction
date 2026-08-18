@@ -1,0 +1,383 @@
+@import "tailwindcss";
+
+@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "../app/**/*.{js,ts,jsx,tsx}";
+@source "../src/**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  --font-display: var(--font-cormorant), "Didot", "Bodoni MT", "Cinzel", Georgia, serif;
+  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-gold: #C19B6C;
+  --color-gold-light: #E8D1B0;
+  --color-gold-dark: #8C6C43;
+  --color-gold-champagne: #F5E6CC;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── CSS Variables ───────────────────────────────────────── */
+:root {
+  --gold: #C19B6C;
+  --gold-light: #E8D1B0;
+  --gold-dark: #8C6C43;
+  --gold-champagne: #F5E6CC;
+  --gold-glow: rgba(193, 155, 108, 0.22);
+  --gold-glow-intense: rgba(193, 155, 108, 0.45);
+
+  --background: #FAF8F5;
+  --foreground: #121114;
+
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+  --surface-muted: #F3EFEA;
+  --surface-overlay: rgba(250, 248, 245, 0.85);
+
+  --border: rgba(18, 17, 20, 0.08);
+  --border-gold: rgba(193, 155, 108, 0.25);
+  --muted-fg: #5C5854;
+  --subtle-fg: #8C8782;
+
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 12px 40px -4px rgba(18, 17, 20, 0.08);
+  --shadow-gold: 0 8px 32px -4px rgba(193, 155, 108, 0.18);
+}
+
+.dark {
+  --gold: #C19B6C;
+  --gold-light: #E8D1B0;
+  --gold-dark: #8C6C43;
+  --gold-champagne: #F5E6CC;
+  --gold-glow: rgba(193, 155, 108, 0.3);
+  --gold-glow-intense: rgba(193, 155, 108, 0.55);
+
+  --background: #08080A;
+  --foreground: #F8F7F5;
+
+  --surface: #101014;
+  --surface-raised: #16161C;
+  --surface-muted: #1A1A22;
+  --surface-overlay: rgba(8, 8, 10, 0.88);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(193, 155, 108, 0.3);
+  --muted-fg: rgba(248, 247, 245, 0.65);
+  --subtle-fg: rgba(248, 247, 245, 0.4);
+
+  --shadow-subtle: 0 4px 24px -2px rgba(0, 0, 0, 0.6);
+  --shadow-elevated: 0 16px 50px -4px rgba(0, 0, 0, 0.8);
+  --shadow-gold: 0 8px 36px -4px rgba(193, 155, 108, 0.25);
+}
+
+/* ─── Reset & Base (Minimal) ────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ─── Selection & Focus ───────────────────────────────────── */
+::selection {
+  background: var(--gold);
+  color: #08080A;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Keyframe Animations ──────────────────────────────────── */
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-gold {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(193, 155, 108, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 35px rgba(193, 155, 108, 0.45);
+  }
+}
+
+@keyframes rec-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* ─── Utility Classes (Minimal) ──────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.gold-border {
+  border-color: var(--gold);
+}
+
+.gold-glow {
+  box-shadow: 0 0 30px var(--gold-glow);
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #8C6C43 0%, #E8D1B0 25%, #C19B6C 50%, #F5E6CC 75%, #8C6C43 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+.rec-indicator {
+  animation: rec-blink 1.4s ease-in-out infinite;
+}
+
+.gold-glow-box {
+  animation: pulse-gold 4s infinite ease-in-out;
+}
+
+.scroll-indicator-bar {
+  animation: scroll-down 2.4s ease-in-out infinite;
+}
+
+.nav-glass {
+  background: rgba(250, 248, 245, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .nav-glass {
+  background: rgba(8, 8, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(193, 155, 108, 0.45);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold), var(--shadow-elevated);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #A37E50 0%, #D4AF82 50%, #C19B6C 100%) !important;
+  background-size: 200% 100% !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(193, 155, 108, 0.25);
+  color: #FFFFFF !important;
+}
+
+.btn-gold:hover {
+  background-position: 100% 0 !important;
+  box-shadow: 0 8px 30px rgba(193, 155, 108, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ─── Film Sprocket & Contact Sheet Frame ────────────────── */
+.film-frame {
+  position: relative;
+  border-top: 18px solid #050507;
+  border-bottom: 18px solid #050507;
+}
+
+.film-frame::before,
+.film-frame::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 2px, transparent 2.5px);
+  background-size: 18px 10px;
+  background-repeat: repeat-x;
+  pointer-events: none;
+}
+
+.film-frame::before {
+  top: -14px;
+}
+
+.film-frame::after {
+  bottom: -14px;
+}
+
+/* ─── Layout Utility Classes (Minimal) ───────────────────── */
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.section-inner {
+  width: min(100% - 3rem, 1280px);
+  margin-inline: auto;
+}
+
+.section-inner-wide {
+  width: min(100% - 3rem, 1440px);
+  margin-inline: auto;
+}
+
+.section-inner-narrow {
+  width: min(100% - 3rem, 960px);
+  margin-inline: auto;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── 3D Perspective Utilities ───────────────────────────── */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+
+.translate-z-50 {
+  transform: translateZ(50px);
+}
