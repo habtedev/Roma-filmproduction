@@ -173,7 +173,7 @@ export default function AdminPage() {
   React.useEffect(() => {
     const fetchUser = async () => {
       try {
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
         const res = await fetch(`${API_URL}/api/auth/me`, {
           credentials: "include"
@@ -196,7 +196,7 @@ export default function AdminPage() {
 
   const handleLogout = async () => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       await fetch(`${API_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include"
