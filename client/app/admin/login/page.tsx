@@ -31,6 +31,9 @@ export default function LoginPage() {
       console.log("Login API Response:", data);
 
       if (data.success) {
+        if (data.token) {
+          localStorage.setItem("roma_token", data.token);
+        }
         console.log("Success! Attempting to router.push to /admin/dashboard...");
         router.push("/admin/dashboard");
         console.log("router.push called!");

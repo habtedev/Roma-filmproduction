@@ -72,6 +72,15 @@ const PHOTO_PRESETS = [
   "/image/video_thumb_2.webp",
 ];
 
+const authFetch = (url: string, options: RequestInit = {}) => {
+  const token = typeof window !== 'undefined' ? localStorage.getItem("roma_token") : null;
+  const headers = new Headers(options.headers || {});
+  if (token) {
+    headers.set("Authorization", `Bearer ${token}`);
+  }
+  return fetch(url, { ...options, headers });
+};
+
 export default function AdminPage() {
   const router = useRouter();
   const {
@@ -175,19 +184,21 @@ export default function AdminPage() {
       try {
         const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
-        const res = await fetch(`${API_URL}/api/auth/me`, {
+        const res = await authFetch(`${API_URL}/api/auth/me`, {
           credentials: "include"
         });
         const data = await res.json();
         if (data.success && data.user) {
+          console.log("fetchUser success! User:", data.user);
           setAuthUser(data.user);
           // Sync profile form email with real authenticated email
           setProfileForm(prev => ({ ...prev, email: data.user.email }));
         } else {
+          console.error("fetchUser rejected session. Server returned:", data);
           router.push("/admin/login");
         }
       } catch (err) {
-        console.error("Failed to fetch user:", err);
+        console.error("Failed to fetch user completely:", err);
         router.push("/admin/login");
       }
     };
@@ -197,10 +208,11 @@ export default function AdminPage() {
   const handleLogout = async () => {
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      await fetch(`${API_URL}/api/auth/logout`, {
+      await authFetch(`${API_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include"
       });
+      localStorage.removeItem("roma_token");
     } catch (err) {
       console.error("Logout error:", err);
     }
@@ -281,7 +293,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -311,7 +323,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -341,7 +353,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -376,7 +388,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -406,7 +418,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -436,7 +448,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -526,7 +538,7 @@ export default function AdminPage() {
 
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/upload`, {
+      const res = await authFetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -559,7 +571,7 @@ export default function AdminPage() {
     }
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
-      const res = await fetch(`${API_URL}/api/admin/auth`, {
+      const res = await authFetch(`${API_URL}/api/admin/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

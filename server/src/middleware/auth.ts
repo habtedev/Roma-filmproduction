@@ -7,8 +7,13 @@ import { eq, and, gt } from 'drizzle-orm';
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_key_roma_film';
 
 export async function authenticateToken(req: Request, res: Response, next: NextFunction) {
-  const accessToken = req.cookies?.roma_access_token;
+  let accessToken = req.cookies?.roma_access_token;
   const refreshToken = req.cookies?.roma_refresh_token;
+
+  // Fallback to Authorization header if cookie is blocked/missing
+  if (!accessToken && req.headers.authorization?.startsWith('Bearer ')) {
+    accessToken = req.headers.authorization.split(' ')[1];
+  }
 
   // Function to verify access token
   const verifyAccessToken = (token: string) => {

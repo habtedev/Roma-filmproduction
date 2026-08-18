@@ -109,7 +109,7 @@ export class AdminController {
         maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
       });
 
-      return res.json({ success: true });
+      return res.json({ success: true, token: accessToken });
     } catch (error) {
       console.error("Login error:", error);
       res.status(500).json({ success: false, error: 'Internal Server Error' });
