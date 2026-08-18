@@ -11,6 +11,9 @@ dotenv.config({ path: path.join(__dirname, '../config/.env') });
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Trust proxy for secure cookies behind Render/Vercel
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(cors({
   origin: [

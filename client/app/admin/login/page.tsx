@@ -31,8 +31,8 @@ export default function LoginPage() {
       console.log("Login API Response:", data);
 
       if (data.success) {
-        console.log("Success! Attempting to router.push to /admin...");
-        router.push("/admin");
+        console.log("Success! Attempting to router.push to /admin/dashboard...");
+        router.push("/admin/dashboard");
         console.log("router.push called!");
       } else {
         console.error("Login failed:", data.error);
