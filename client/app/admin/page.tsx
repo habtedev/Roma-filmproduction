@@ -166,7 +166,7 @@ export default function AdminPage() {
 
   // Testimonials Edit / Add State
   const [isTestimonialModalOpen, setIsTestimonialModalOpen] = useState(false);
-  
+
   // Authenticated User State
   const [authUser, setAuthUser] = useState<{ email: string; name: string; avatar: string | null } | null>(null);
 
@@ -183,9 +183,12 @@ export default function AdminPage() {
           setAuthUser(data.user);
           // Sync profile form email with real authenticated email
           setProfileForm(prev => ({ ...prev, email: data.user.email }));
+        } else {
+          router.push("/admin/login");
         }
       } catch (err) {
         console.error("Failed to fetch user:", err);
+        router.push("/admin/login");
       }
     };
     fetchUser();
@@ -256,14 +259,14 @@ export default function AdminPage() {
       showToast("Please enter a title and image source", "error");
       return;
     }
-    
+
     // Show a saving state? We can just await it since saveToBackend sets isSaving=true internally
     if (editingPhoto) {
       await updatePhoto(editingPhoto.id, photoForm);
     } else {
       await addPhoto(photoForm);
     }
-    
+
     setIsPhotoModalOpen(false);
     setEditingPhoto(null);
   };
@@ -277,7 +280,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -307,7 +310,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -337,7 +340,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -372,7 +375,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -402,7 +405,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -432,7 +435,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -522,7 +525,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -555,10 +558,10 @@ export default function AdminPage() {
       return;
     }
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const API_URL = process.env.NEXT_PUBLIC_API_URL
       const res = await fetch(`${API_URL}/api/admin/auth`, {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
         },
         credentials: "include",
@@ -654,8 +657,8 @@ export default function AdminPage() {
               {activeTab === "dashboard"
                 ? "Production Overview & Analytics"
                 : activeTab === "profile"
-                ? "Admin Profile & Security"
-                : `${activeTab} Management & Studio Editor`}
+                  ? "Admin Profile & Security"
+                  : `${activeTab} Management & Studio Editor`}
             </h1>
           </div>
         </div>
@@ -742,11 +745,10 @@ export default function AdminPage() {
                       setActiveTab(tab.id as AdminTab);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-medium transition-all duration-300 cursor-pointer ${
-                      active
-                        ? "bg-gradient-to-r from-[#C19B6C]/90 to-[#C19B6C] text-zinc-950 font-bold shadow-lg shadow-[#C19B6C]/20 scale-[1.02]"
-                        : "text-zinc-400 hover:text-white hover:bg-white/5 hover:translate-x-1"
-                    }`}
+                    className={`w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-medium transition-all duration-300 cursor-pointer ${active
+                      ? "bg-gradient-to-r from-[#C19B6C]/90 to-[#C19B6C] text-zinc-950 font-bold shadow-lg shadow-[#C19B6C]/20 scale-[1.02]"
+                      : "text-zinc-400 hover:text-white hover:bg-white/5 hover:translate-x-1"
+                      }`}
                   >
                     <div className="flex items-center gap-2.5">
                       <Icon size={16} className={active ? "text-zinc-950" : "text-[#C19B6C]"} />
@@ -754,13 +756,12 @@ export default function AdminPage() {
                     </div>
                     {tab.count !== undefined && (
                       <span
-                        className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-semibold ${
-                          active
-                            ? "bg-zinc-950/20 text-zinc-950"
-                            : tab.highlight
+                        className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-semibold ${active
+                          ? "bg-zinc-950/20 text-zinc-950"
+                          : tab.highlight
                             ? "bg-[#C19B6C] text-zinc-950"
                             : "bg-white/10 text-zinc-300"
-                        }`}
+                          }`}
                       >
                         {tab.count}
                       </span>
@@ -771,7 +772,7 @@ export default function AdminPage() {
             </nav>
           </div>
 
-          <button 
+          <button
             onClick={handleLogout}
             className="w-full flex items-center justify-center gap-2 px-3.5 py-3 rounded-xl text-xs font-medium text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-colors cursor-pointer mt-4"
           >
@@ -1225,7 +1226,7 @@ export default function AdminPage() {
                     <h3 className="text-sm font-semibold text-white border-b border-white/10 pb-2">
                       Artist Portrait &amp; Identity
                     </h3>
-                    
+
                     <div className="space-y-3">
                       <label className="text-xs font-mono uppercase text-zinc-400">Artist Portrait Image</label>
                       <div className="relative w-full aspect-[4/5] rounded-xl border-2 border-dashed border-white/10 bg-black/30 overflow-hidden flex flex-col items-center justify-center group transition-colors hover:border-[#C19B6C]/50">
@@ -1245,15 +1246,15 @@ export default function AdminPage() {
                         ) : (
                           <label className="cursor-pointer flex flex-col items-center gap-3 p-6 text-center w-full h-full justify-center">
                             {isUploadingAboutPhoto ? (
-                               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#C19B6C]" />
+                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#C19B6C]" />
                             ) : (
-                               <div className="p-4 bg-white/5 rounded-full text-zinc-400 group-hover:text-[#C19B6C] group-hover:bg-[#C19B6C]/10 transition-colors">
-                                 <UploadCloud size={24} />
-                               </div>
+                              <div className="p-4 bg-white/5 rounded-full text-zinc-400 group-hover:text-[#C19B6C] group-hover:bg-[#C19B6C]/10 transition-colors">
+                                <UploadCloud size={24} />
+                              </div>
                             )}
                             <div>
-                               <span className="text-xs font-mono uppercase tracking-widest font-semibold block mb-1">Upload New Portrait</span>
-                               <span className="text-[10px] text-zinc-500">Click to browse or drag &amp; drop</span>
+                              <span className="text-xs font-mono uppercase tracking-widest font-semibold block mb-1">Upload New Portrait</span>
+                              <span className="text-[10px] text-zinc-500">Click to browse or drag &amp; drop</span>
                             </div>
                             <input type="file" accept="image/*" className="hidden" onChange={handleAboutPhotoUpload} disabled={isUploadingAboutPhoto} />
                           </label>
@@ -1345,11 +1346,10 @@ export default function AdminPage() {
                     <button
                       key={cat}
                       onClick={() => setPhotoCategory(cat)}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors cursor-pointer ${
-                        photoCategory === cat
-                          ? "bg-[#C19B6C] text-zinc-950 font-bold"
-                          : "bg-white/5 text-zinc-400 hover:text-white"
-                      }`}
+                      className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors cursor-pointer ${photoCategory === cat
+                        ? "bg-[#C19B6C] text-zinc-950 font-bold"
+                        : "bg-white/5 text-zinc-400 hover:text-white"
+                        }`}
                     >
                       {cat}
                     </button>
@@ -1572,11 +1572,10 @@ export default function AdminPage() {
                 {content.packages.map((pkg, idx) => (
                   <div
                     key={idx}
-                    className={`rounded-3xl p-6 border flex flex-col justify-between space-y-4 shadow-xl transition-all ${
-                      pkg.popular || pkg.recommended
-                        ? "bg-[#14141c] border-[#C19B6C] ring-1 ring-[#C19B6C]/30"
-                        : "bg-[#121217] border-white/10"
-                    }`}
+                    className={`rounded-3xl p-6 border flex flex-col justify-between space-y-4 shadow-xl transition-all ${pkg.popular || pkg.recommended
+                      ? "bg-[#14141c] border-[#C19B6C] ring-1 ring-[#C19B6C]/30"
+                      : "bg-[#121217] border-white/10"
+                      }`}
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
@@ -1867,7 +1866,7 @@ export default function AdminPage() {
                   <label className="font-mono uppercase text-zinc-400 block mb-1">
                     Photo Image
                   </label>
-                  
+
                   {/* Image Preview Area */}
                   <div className="relative w-full aspect-video rounded-xl border-2 border-dashed border-white/10 bg-black/30 overflow-hidden flex flex-col items-center justify-center group transition-colors hover:border-[#C19B6C]/50">
                     {photoForm.src ? (
@@ -1884,15 +1883,15 @@ export default function AdminPage() {
                     ) : (
                       <label className="flex flex-col items-center justify-center w-full h-full cursor-pointer hover:bg-white/5 transition-colors">
                         {isUploadingPhoto ? (
-                           <div className="flex flex-col items-center gap-3 text-[#C19B6C]">
-                             <Loader2 size={32} className="animate-spin" />
-                             <span className="text-xs font-mono uppercase tracking-widest font-semibold">Uploading...</span>
-                           </div>
+                          <div className="flex flex-col items-center gap-3 text-[#C19B6C]">
+                            <Loader2 size={32} className="animate-spin" />
+                            <span className="text-xs font-mono uppercase tracking-widest font-semibold">Uploading...</span>
+                          </div>
                         ) : (
-                           <div className="flex flex-col items-center gap-3 text-zinc-400 group-hover:text-[#C19B6C] transition-colors">
-                             <UploadCloud size={32} />
-                             <span className="text-xs font-mono uppercase tracking-widest font-semibold">Click to Upload Photo</span>
-                           </div>
+                          <div className="flex flex-col items-center gap-3 text-zinc-400 group-hover:text-[#C19B6C] transition-colors">
+                            <UploadCloud size={32} />
+                            <span className="text-xs font-mono uppercase tracking-widest font-semibold">Click to Upload Photo</span>
+                          </div>
                         )}
                         <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} disabled={isUploadingPhoto} />
                       </label>
@@ -2041,15 +2040,15 @@ export default function AdminPage() {
                     ) : (
                       <label className="flex flex-col items-center justify-center w-full h-full cursor-pointer hover:bg-white/5 transition-colors">
                         {isUploadingVideoPoster ? (
-                           <div className="flex flex-col items-center gap-3 text-[#C19B6C]">
-                             <Loader2 size={32} className="animate-spin" />
-                             <span className="text-xs font-mono uppercase tracking-widest font-semibold">Uploading...</span>
-                           </div>
+                          <div className="flex flex-col items-center gap-3 text-[#C19B6C]">
+                            <Loader2 size={32} className="animate-spin" />
+                            <span className="text-xs font-mono uppercase tracking-widest font-semibold">Uploading...</span>
+                          </div>
                         ) : (
-                           <div className="flex flex-col items-center gap-3 text-zinc-400 group-hover:text-[#C19B6C] transition-colors">
-                             <UploadCloud size={32} />
-                             <span className="text-xs font-mono uppercase tracking-widest font-semibold">Upload Poster Image</span>
-                           </div>
+                          <div className="flex flex-col items-center gap-3 text-zinc-400 group-hover:text-[#C19B6C] transition-colors">
+                            <UploadCloud size={32} />
+                            <span className="text-xs font-mono uppercase tracking-widest font-semibold">Upload Poster Image</span>
+                          </div>
                         )}
                         <input type="file" accept="image/*" className="hidden" onChange={handleVideoPosterUpload} disabled={isUploadingVideoPoster} />
                       </label>
@@ -2073,7 +2072,7 @@ export default function AdminPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <label className="shrink-0 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold uppercase tracking-wider text-[10px] flex items-center gap-2 cursor-pointer transition-colors">
                       <UploadCloud size={14} />
                       <span>{isUploadingVideoFile ? "Uploading..." : "Upload Video"}</span>
@@ -2360,15 +2359,15 @@ export default function AdminPage() {
                     ) : (
                       <label className="flex flex-col items-center justify-center w-full h-full cursor-pointer hover:bg-white/5 transition-colors">
                         {isUploadingServiceImage ? (
-                           <div className="flex flex-col items-center gap-3 text-[#C19B6C]">
-                             <Loader2 size={32} className="animate-spin" />
-                             <span className="text-xs font-mono uppercase tracking-widest font-semibold">Uploading...</span>
-                           </div>
+                          <div className="flex flex-col items-center gap-3 text-[#C19B6C]">
+                            <Loader2 size={32} className="animate-spin" />
+                            <span className="text-xs font-mono uppercase tracking-widest font-semibold">Uploading...</span>
+                          </div>
                         ) : (
-                           <div className="flex flex-col items-center gap-3 text-zinc-400 group-hover:text-[#C19B6C] transition-colors">
-                             <UploadCloud size={32} />
-                             <span className="text-xs font-mono uppercase tracking-widest font-semibold">Upload Cover Image</span>
-                           </div>
+                          <div className="flex flex-col items-center gap-3 text-zinc-400 group-hover:text-[#C19B6C] transition-colors">
+                            <UploadCloud size={32} />
+                            <span className="text-xs font-mono uppercase tracking-widest font-semibold">Upload Cover Image</span>
+                          </div>
                         )}
                         <input type="file" accept="image/*" className="hidden" onChange={handleServiceImageUpload} disabled={isUploadingServiceImage} />
                       </label>

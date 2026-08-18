@@ -28,10 +28,14 @@ export default function LoginPage() {
       });
 
       const data = await res.json();
+      console.log("Login API Response:", data);
 
       if (data.success) {
+        console.log("Success! Attempting to router.push to /admin...");
         router.push("/admin");
+        console.log("router.push called!");
       } else {
+        console.error("Login failed:", data.error);
         setError(data.error || "Invalid credentials. Please try again.");
       }
     } catch (err: any) {
