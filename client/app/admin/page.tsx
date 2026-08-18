@@ -280,7 +280,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -310,7 +310,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -340,7 +340,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -375,7 +375,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -405,7 +405,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -435,7 +435,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -525,7 +525,7 @@ export default function AdminPage() {
     formData.append("file", file);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/upload`, {
         method: "POST",
         credentials: "include",
@@ -558,7 +558,7 @@ export default function AdminPage() {
       return;
     }
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${API_URL}/api/admin/auth`, {
         method: "POST",
         headers: {
