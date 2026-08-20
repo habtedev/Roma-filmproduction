@@ -9,7 +9,6 @@ export default function HeroSection() {
   const [isMuted, setIsMuted] = useState(true);
   const [videoReady, setVideoReady] = useState(false);
   const [timecode, setTimecode] = useState("00:00:00:00");
-  const [showTrailerModal, setShowTrailerModal] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -112,7 +111,7 @@ export default function HeroSection() {
       />
 
       {/* ── CINEMATIC CAMERA HUD OVERLAY (TOP CORNERS) ──── */}
-      <div className="absolute top-24 sm:top-28 inset-x-6 sm:inset-x-12 lg:inset-x-16 z-20 flex items-center justify-between pointer-events-none">
+      <div className="absolute top-20 sm:top-28 inset-x-4 sm:inset-x-12 lg:inset-x-16 z-20 flex items-center justify-between pointer-events-none">
         {/* REC & Format indicator */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -143,39 +142,35 @@ export default function HeroSection() {
       {/* ── CENTERED CONTENT ─────────────────────────── */}
       <motion.div
         style={{ y: textY }}
-        className="section-inner-wide relative z-10 flex items-center justify-center h-full min-h-screen will-change-transform"
+        className="section-inner-wide relative z-10 flex flex-col items-center justify-end sm:justify-center h-full will-change-transform pb-32 sm:pb-0"
       >
-        <div className="flex flex-col items-center text-center max-w-4xl w-full pt-28 sm:pt-32 pb-28 sm:pb-36 px-4">
+        <div className="flex flex-col items-center text-center max-w-4xl w-full pt-[45vh] sm:pt-32 pb-8 sm:pb-36 px-4">
 
-          {/* Eyebrow badge */}
+          {/* Eyebrow badge (Hidden on mobile for cleaner view) */}
           <motion.div
             initial={{ opacity: 0, y: -14, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="mb-6 sm:mb-8"
+            className="hidden sm:flex mb-6 sm:mb-8 justify-center"
           >
-            <div className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-[#C19B6C]/30 bg-black/40 backdrop-blur-xl shadow-2xl">
-              <span className="relative flex h-[8px] w-[8px] shrink-0">
-                <span className="animate-ping absolute inset-0 rounded-full bg-[#C19B6C] opacity-75" />
-                <span className="relative rounded-full h-[8px] w-[8px] bg-[#C19B6C]" />
-              </span>
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.25em] uppercase text-white/95">
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-5 py-2 rounded-full border border-white/10 bg-black/20 backdrop-blur-md shadow-xl">
+              <span className="text-[10px] sm:text-xs font-medium tracking-[0.25em] uppercase text-white/90">
                 Roma Film Production
               </span>
-              <span className="w-3 h-px bg-white/30" aria-hidden="true" />
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase text-[#E8D1B0]">
+              <span className="w-1 h-1 rounded-full bg-white/30" aria-hidden="true" />
+              <span className="text-[10px] sm:text-xs font-medium tracking-[0.25em] uppercase text-[#E8D1B0]">
                 Dallas & Worldwide
               </span>
             </div>
           </motion.div>
 
           {/* Headline */}
-          <div className="overflow-hidden mb-4 sm:mb-6">
+          <div className="overflow-hidden mb-3 sm:mb-6 px-4">
             <motion.h1
               initial={{ opacity: 0, y: 56 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
-              className="h1 text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] mix-blend-difference"
+              className="font-display text-[1.35rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-tight text-white drop-shadow-xl"
             >
               Love, Captured
             </motion.h1>
@@ -184,7 +179,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
             >
-              <span className="h1 italic font-normal gold-shimmer block mt-1 drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] mix-blend-difference">
+              <span className="font-display text-[1.35rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-tight italic font-light gold-shimmer block mt-1 drop-shadow-xl">
                 Beautifully.
               </span>
             </motion.div>
@@ -196,15 +191,15 @@ export default function HeroSection() {
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.44 }}
             aria-hidden="true"
-            className="w-20 h-[2px] bg-gradient-to-r from-transparent via-[#C19B6C] to-transparent mx-auto mb-6 sm:mb-7"
+            className="w-16 sm:w-20 h-[2px] bg-gradient-to-r from-transparent via-[#C19B6C] to-transparent mx-auto mb-5 sm:mb-7"
           />
 
-          {/* Subtitle */}
+          {/* Subtitle (Hidden on mobile for cleaner view) */}
           <motion.p
             initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.46 }}
-            className="lede text-center text-white/95 max-w-2xl mx-auto mb-10 sm:mb-12 px-2 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] mix-blend-difference font-medium"
+            className="hidden sm:block text-[11px] sm:text-base md:text-lg lg:text-xl text-center text-white/80 max-w-2xl mx-auto mb-6 sm:mb-12 px-6 drop-shadow-md font-light leading-relaxed tracking-wide"
           >
             Fine art wedding photography &amp; bespoke cinematic filmmaking — crafting enduring heirlooms with an editorial eye and timeless intimacy.
           </motion.p>
@@ -214,28 +209,17 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full px-4 sm:px-0"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full px-6 sm:px-0"
           >
             {/* Primary CTA */}
             <Button
               variant="default"
               size="lg"
               onClick={() => scrollToSection("contact")}
-              className="w-full sm:w-auto shadow-2xl shadow-[#C19B6C]/30 text-white font-bold"
+              className="w-full sm:w-auto shadow-xl shadow-[#C19B6C]/20 text-white font-medium h-11 sm:h-14 px-8 text-[11px] sm:text-sm tracking-widest uppercase rounded-full border border-[#C19B6C]/50 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
             >
               <span>Check Date Availability</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-
-            {/* Watch Showreel CTA */}
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => setShowTrailerModal(true)}
-              className="w-full sm:w-auto border-white/25 hover:border-[#C19B6C] text-white hover:bg-white/10"
-            >
-              <Play className="fill-[#C19B6C] text-[#C19B6C] w-4 h-4" />
-              <span>Watch 2026 Showreel</span>
+              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
             </Button>
           </motion.div>
 
@@ -243,7 +227,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* ── BOTTOM CHROME CONTROLS ─────────────────────── */}
-      <div className="absolute bottom-7 sm:bottom-9 inset-x-6 sm:inset-x-12 lg:inset-x-16 z-20 flex items-center justify-between">
+      <div className="absolute bottom-5 sm:bottom-9 inset-x-4 sm:inset-x-12 lg:inset-x-16 z-20 flex items-center justify-between">
 
         {/* Audio toggle + Visualizer */}
         <motion.button
@@ -252,7 +236,7 @@ export default function HeroSection() {
           transition={{ delay: 1.6, duration: 0.6 }}
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute sound" : "Mute sound"}
-          className="flex items-center gap-3 px-4 sm:px-5 py-2.5 rounded-full border border-white/15 bg-black/60 backdrop-blur-xl text-white hover:border-[#C19B6C] hover:bg-black/80 transition-all duration-300 text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase cursor-pointer group"
+          className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full border border-white/15 bg-black/60 backdrop-blur-xl text-white hover:border-[#C19B6C] hover:bg-black/80 transition-all duration-300 text-[9px] sm:text-xs font-bold tracking-[0.18em] uppercase cursor-pointer group scale-90 sm:scale-100 origin-left"
         >
           <AnimatePresence mode="wait" initial={false}>
             {isMuted ? (
@@ -321,56 +305,7 @@ export default function HeroSection() {
           <Sparkles size={12} className="text-[#C19B6C]" />
           <span>Curated Portfolio</span>
         </motion.button>
-
       </div>
-
-      {/* ── SHOWREEL MODAL ─────────────────────────────── */}
-      <AnimatePresence>
-        {showTrailerModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-10"
-            onClick={() => setShowTrailerModal(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden border border-[#C19B6C]/30 shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setShowTrailerModal(false)}
-                className="absolute top-4 right-4 z-30 p-2.5 bg-black/80 hover:bg-[#C19B6C] text-white hover:text-zinc-950 rounded-full transition-all border border-white/20 cursor-pointer"
-                aria-label="Close Showreel"
-              >
-                <X size={18} />
-              </button>
-
-              <video
-                controls
-                autoPlay
-                className="w-full h-full object-cover"
-                aria-label="Roma Film Production Showreel"
-              >
-                <source src="/videos/banner.mp4" type="video/mp4" />
-                Your browser does not support video playback.
-              </video>
-
-              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none">
-                <div className="flex items-center gap-2 mb-1">
-                  <Clapperboard size={14} className="text-[#C19B6C]" />
-                  <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#E8D1B0]">Official 2026 Showreel</span>
-                </div>
-                <h3 className="font-display text-2xl font-light text-white">Roma Film Production Cinema Master Reel</h3>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

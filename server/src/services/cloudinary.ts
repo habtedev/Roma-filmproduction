@@ -17,23 +17,21 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: async (req, file) => {
-    // Determine folder and resource type based on file type
-    let folder = 'roma_film/images';
-    let resource_type = 'image';
-
-    if (file.mimetype.startsWith('video/')) {
-      folder = 'roma_film/videos';
-      resource_type = 'video';
-    }
+    // Robust check for video files
+    const isVideo = file.mimetype.startsWith('video/') || file.originalname.match(/\.(mp4|mov|avi|mkv|webm)$/i);
 
     return {
-      folder: folder,
-      resource_type: resource_type,
-      allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'mp4', 'mov'],
+      folder: isVideo ? 'roma_film/videos' : 'roma_film/images',
+      resource_type: 'auto', // Auto-detect to prevent forced image limits
+      allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'mp4', 'mov', 'avi', 'mkv', 'webm'],
+      chunk_size: 6000000, // 6MB chunks to bypass the 10MB default stream limit for large files
       // Cloudinary will auto-generate a unique public_id
-    };
+    } as any;
   },
 });
 
-export const upload = multer({ storage: storage });
+export const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: Infinity } // Completely unlimited on the Node server
+});
 export { cloudinary };

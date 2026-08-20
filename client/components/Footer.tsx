@@ -212,11 +212,6 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-4 sm:gap-5 text-[10px] text-zinc-400 dark:text-white/30 font-light">
-            <Link href="/admin/dashboard" className="inline-flex items-center gap-1 text-[#C19B6C] hover:text-[#e0b885] transition-colors font-medium">
-              <ShieldCheck size={11} />
-              <span>Studio Admin</span>
-            </Link>
-            <span className="w-[3px] h-[3px] rounded-full bg-current opacity-40" />
             <a href="#" className="hover:text-[#C19B6C] transition-colors">Privacy Policy</a>
             <span className="w-[3px] h-[3px] rounded-full bg-current opacity-40" />
             <a href="#" className="hover:text-[#C19B6C] transition-colors">Terms</a>

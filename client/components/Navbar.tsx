@@ -350,22 +350,6 @@ export default function Navbar() {
 
             <ThemeToggle />
 
-            {/* Admin Login Button */}
-            <motion.a
-              href="/admin/login"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={cn(
-                "hidden lg:flex items-center justify-center p-2 rounded-lg transition-colors",
-                overVideo
-                  ? "text-white/70 hover:text-white hover:bg-white/10"
-                  : "text-black/60 dark:text-white/60 hover:text-[#C19B6C] bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10"
-              )}
-              aria-label="Admin Portal"
-            >
-              <Lock className="w-4 h-4" />
-            </motion.a>
-
             {/* Book Session Button with premium effects */}
             <Button
               variant={overVideo ? "default" : "outline"}
@@ -573,17 +557,6 @@ export default function Navbar() {
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </motion.a>
                   ))}
-                  
-                  {/* Mobile Admin Login */}
-                  <motion.a
-                    href="/admin/login"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="p-2.5 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-black/60 dark:text-white/60 hover:text-[#C19B6C] transition-colors border border-black/10 dark:border-white/10"
-                    aria-label="Admin Portal"
-                  >
-                    <Lock className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </motion.a>
                 </motion.div>
 
                 <motion.p
